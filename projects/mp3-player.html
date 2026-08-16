@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portable MP3 Player — Katie Lee</title>
+<meta name="description" content="Case study: a battery-powered MP3 player with a true hardware power switch, built around an Arduino Nano, DFPlayer Mini, and a 0.96-inch SSD1306 OLED.">
+<meta property="og:title" content="Portable MP3 Player — Katie Lee">
+<meta property="og:description" content="A battery-powered MP3 player with a true hardware off, built around an Arduino Nano, DFPlayer Mini, and a PowerBoost-charged LiPo.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="../images/favicon.png">
+<link rel="stylesheet" href="../css/styles.css?v=26">
+</head>
+<body>
+
+<div class="sparkle-field" aria-hidden="true">
+  <div class="sparkle" style="--top:6%; --left:12%; --size:14px; --delay:0s"></div>
+  <div class="sparkle" style="--top:18%; --left:78%; --size:10px; --delay:1.4s"></div>
+  <div class="sparkle" style="--top:34%; --left:26%; --size:9px; --delay:3s"></div>
+  <div class="sparkle" style="--top:46%; --left:88%; --size:13px; --delay:2.2s"></div>
+  <div class="sparkle" style="--top:62%; --left:8%; --size:11px; --delay:4.1s"></div>
+  <div class="sparkle" style="--top:71%; --left:62%; --size:8px; --delay:5s"></div>
+  <div class="sparkle" style="--top:84%; --left:34%; --size:12px; --delay:1.1s"></div>
+  <div class="sparkle" style="--top:92%; --left:82%; --size:10px; --delay:3.6s"></div>
+</div>
+
+<div class="page-shell">
+
+  <div class="os-topbar">
+    <a href="../index.html" class="start-btn"><span class="glyph">✦</span>Start</a>
+    <span class="os-label">KatieOS 1.0</span>
+    <span class="spacer"></span>
+    <span class="os-clock" id="os-clock">08/15/2001 · 12:00 PM</span>
+  </div>
+
+  <nav class="primary-nav" aria-label="Primary">
+    <div class="tab-row">
+      <a href="../index.html" class="tab">Home</a>
+      <a href="../about.html" class="tab">About</a>
+      <a href="index.html" class="tab" aria-current="page">Projects</a>
+      <a href="../experience.html" class="tab">Experience</a>
+      <a href="../contact.html" class="tab">Contact</a>
+    </div>
+    <div class="secondary-links">
+      <a href="https://www.linkedin.com/in/katie-jihyo-lee/" target="_blank" rel="noopener">LinkedIn</a>
+      <span class="rule">|</span>
+      <a href="https://github.com/katiejihyo" target="_blank" rel="noopener">GitHub</a>
+      <span class="rule">|</span>
+      <a href="mailto:kl9484@princeton.edu">Email me</a>
+    </div>
+  </nav>
+
+  <main>
+    <article>
+      <div class="breadcrumb">C:\projects\mp3-player — <a href="index.html">back to projects</a></div>
+      <h1 class="project-title">Portable MP3 Player</h1>
+      <div class="project-metalong">Electronics | 2026 | Arduino Nano, DFPlayer Mini, SSD1306 OLED, PowerBoost 1000C</div>
+
+      <!-- optional — uncomment and add the real URL(s) if this project has a public repo or live site
+      <div class="project-links">
+        <a href="https://github.com/katiejihyo/REPO" target="_blank" rel="noopener" class="btn">View code on GitHub</a>
+        <a href="https://LIVE-URL" target="_blank" rel="noopener" class="btn">View live site</a>
+      </div>
+      -->
+
+      <div class="window">
+        <div class="window__bar upper"><span>Portable MP3 Player</span></div>
+        <div class="window__body window__body--tight">
+          <div class="hero-shot"><img class="fill-img" src="../images/mp3-player/cover.jpeg" alt="Portable MP3 Player hero image"></div>
+        </div>
+      </div>
+
+      <div class="window case-study">
+        <div class="window__bar"><span>CASE-STUDY.DOC</span></div>
+        <div class="window__body">
+          <h2 class="bubble-heading"><span>the problem</span></h2>
+          <p>I wanted a self-contained portable music player: something that runs off its own battery, charges over USB, and doesn't depend on a phone or a streaming service. It needed to be genuinely portable — carried on its own, with a power switch that actually cuts current, and everything soldered together rather than left on a breadboard.</p>
+
+          <h2 class="bubble-heading"><span>what i did</span></h2>
+          <p>I designed and built a battery-powered MP3 player around an Arduino Nano, a DFPlayer Mini decoder, and a 0.96-inch SSD1306 OLED, then soldered the whole thing to a PCB. Power comes from a 3.7V 2000mAh LiPo through a PowerBoost 1000C, which charges the cell and boosts it to a shared 5V rail; an SPDT slide switch on the PowerBoost's EN pin gives a true hardware off at around 20µA rather than a sleep state. Three tactile buttons handle play/pause, next, and previous, and audio comes out through a 3.5mm jack.</p>
+
+          <h2 class="bubble-heading"><span>how it works</span></h2>
+          <div class="screens-grid">
+            <figure style="margin:0">
+              <div class="screen-shot"><img class="fill-img" src="../images/mp3-player/screen-1.jpeg" alt="Soldered PCB and enclosure"></div>
+              <figcaption class="screen-caption">fig 1 — prototype on the breadboard</figcaption>
+            </figure>
+            <figure style="margin:0">
+              <div class="screen-shot"><img class="fill-img" src="../images/mp3-player/screen-2.jpeg" alt="Wiring diagram — Nano, DFPlayer Mini, OLED, and PowerBoost"></div>
+              <figcaption class="screen-caption">fig 2 — side-view of prototype before adding battery</figcaption>
+            </figure>
+            <figure style="margin:0">
+              <div class="screen-shot"><img class="fill-img" src="../images/mp3-player/screen-3.jpeg" alt="OLED display, buttons, and 3.5mm jack"></div>
+              <figcaption class="screen-caption">fig 3 — the final working product</figcaption>
+            </figure>
+          </div>
+
+          <h2 class="bubble-heading"><span>the result</span></h2>
+          <p>The finished player runs off the LiPo, charges over USB while still operating if needed, and switches fully off at the hardware level. Two bugs stood out along the way: the OLED's address turned out to be 0x3C rather than the 0x3D the library defaults to, and the generic board's pin order (GND, VCC, SCL, SDA) doesn't match Adafruit's — wiring by physical position instead of checking the silkscreen would have been a silent failure.</p>
+          <p>In the future, would like to design with a 3D printed enclosure in mind.</p>
+        </div>
+      </div>
+
+      <div class="project-pager">
+        <a href="candy-dispenser.html" class="btn">← Motion-detected Candy Dispenser</a>
+        <a href="kayti-krochets.html" class="btn">Kayti Krochets →</a>
+      </div>
+    </article>
+
+    <footer class="site-footer">
+      <div class="footer-links">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="index.html">Projects</a>
+        <a href="../experience.html">Experience</a>
+        <a href="../contact.html">Contact</a>
+      </div>
+      <div class="footer-copy">© 2026 Katie Lee. All rights reserved.</div>
+      <div class="footer-power">Powered by KatieOS 1.0</div>
+    </footer>
+  </main>
+
+  <div class="status-bar">
+    <span class="status-text">Loading PORTABLE MP3 PLAYER… done</span>
+    <span class="spacer"></span>
+    <span class="status-conn"><span class="status-dot" aria-hidden="true"></span>Connected</span>
+  </div>
+</div>
+
+<script src="../js/main.js?v=26"></script>
+</body>
+</html>
