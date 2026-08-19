@@ -83,7 +83,7 @@
           <p>We designed and built a touchless candy dispenser around an Arduino Uno, a VCNL4010 IR proximity sensor, an NE555 timer, and a servo motor. Rather than handling the cooldown purely in software, we used the 555 as a dedicated hardware timer, so the dispensing interval lives in the circuit itself, with two LEDs exposing the system state to the user. We created the enclosure using cardboard and *lots* of hot glue...</p>
           <p>The VCNL4010 reports a proximity count over I²C; when a hand pushes the reading past a calibrated threshold of ~3,000 counts, the Arduino fires the servo through a 0° → 90° → 0° sweep that drops a single mint, and simultaneously triggers the 555. The 555's RC network (100kΩ / 30μF) holds its output high for roughly 3.3 seconds, and the Arduino watches that output on a digital pin to lock out re-triggering mid-cycle. A blue LED signals ready; red signals dispensing or cooling down.</p>
 
-          <h2 class="bubble-heading"><span>how it works</span></h2>
+          <h2 class="bubble-heading"><span>close up</span></h2>
           <div class="screens-grid">
             <figure style="margin:0">
               <div class="screen-shot"><img class="fill-img" src="../images/candy-dispenser/screen-1.jpeg" alt="Enclosure, front view"></div>
